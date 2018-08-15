@@ -3,7 +3,8 @@ const CACHE_NAME = 'vallejo-game-color-checklist';
 const cacheList = [
   "/",
   "index.html",
-  "build.js"
+  "build.js",
+  "https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"
 ]
 
 // Install and precache
@@ -25,8 +26,13 @@ self.addEventListener("activate", event => {
 
 // Fetch
 self.addEventListener("fetch", event => {
-  event.respondWith( cacheNetwork(event.request) )
-  event.waitUntil( update(event.request) )
+  event.respondWith( cache(event.request) )
+  //event.waitUntil( update(event.request) )
+})
+
+// Messages
+self.addEventListener("message", event => {
+  console.log('[Service Worker] Receiving messages...');
 })
 
 function precache(list) {
@@ -35,6 +41,13 @@ function precache(list) {
     console.log('[Service Worker] Caching all: app shell and content')
     return cache.addAll(list)
   })
+}
+
+function cache(request) {
+  return caches.match(request).then(response => {
+    console.log('[Service Worker] Fetching resource: '+request.url)
+    return response
+  }).catch(error => console.error(error))
 }
 
 function cacheNetwork(request) {

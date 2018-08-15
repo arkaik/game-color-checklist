@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import LocalForage from 'localforage'
 import products from '../data.js'
+import equivalences from '../data2.js'
 
 Vue.use(Vuex)
 
@@ -10,7 +11,7 @@ LocalForage.config({
   storeName: "checklist-game-color-store"
 })
 
-async function initState(store) {
+/*async function initState(store) {
 
   var initialState = {
     products,
@@ -35,6 +36,34 @@ const persistPlugin = store => {
   store.subscribe((mutations, state) => {
       LocalForage.setItem('fullstate', state)
   })
+}*/
+
+async function initState(store) {
+
+  var initialState = {
+    products,
+    equivalences,
+    checkMap: products.reduce((map, prod) => {
+      map[prod.code] = false
+      return map
+    }, {})
+  }
+
+  var savedState = await LocalForage.getItem('fullstate')
+
+  var mixedState = Object.assign({}, initialState, savedState)
+
+  store.replaceState(mixedState)
+}
+
+
+const persistPlugin = store => {
+
+  initState(store)
+
+  store.subscribe((mutations, state) => {
+      LocalForage.setItem('fullstate', state.checkMap)
+  })
 }
 
 export default new Vuex.Store({
@@ -43,6 +72,10 @@ export default new Vuex.Store({
       state.checkMap[code] = value
     }
   },
-  actions: {},
+  actions: {
+    deleteData (context) {
+      LocalForage.dropInstance()
+    }
+  },
   plugins: [persistPlugin]
 })
