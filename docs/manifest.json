@@ -1,0 +1,15 @@
+{
+  "name": "Game Color Checklist by Vallejo",
+  "short_name": "GC Checklist",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#93a7ac",
+  "background_color": "#313131",
+  "icons": [
+    {
+      "src": "https://cdn.glitch.com/c0b45d75-3b40-40cd-abd1-987befe1f7d3%2Ficon.png?1533484127031",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
