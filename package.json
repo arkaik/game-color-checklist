@@ -1,7 +1,7 @@
 {
-  "name": "checklist",
+  "name": "game-color-pwa",
   "version": "0.1.0",
-  "description": "Checklist: Game Color by Vallejo",
+  "description": "Game Color, by Vallejo",
   "scripts": {
     "dev": "webpack-serve",
     "build": "webpack --progress"

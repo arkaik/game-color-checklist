@@ -10,7 +10,7 @@
       </md-app-toolbar>
 
       <md-app-drawer :md-active.sync="menuVisible">
-        <md-toolbar class="md-transparent" md-elevation="0">Checklist: Game Color</md-toolbar>
+        <md-toolbar class="md-transparent" md-elevation="0">Game Color, by Vallejo</md-toolbar>
 
         <md-list>
           <md-list-item to="/" @click="title = 'Color List'">

@@ -1,6 +1,6 @@
 {
-  "name": "Game Color Checklist by Vallejo",
-  "short_name": "GC Checklist",
+  "name": "Game Color, by Vallejo",
+  "short_name": "Game Color",
   "display": "standalone",
   "start_url": "/",
   "theme_color": "#93a7ac",
