@@ -2,7 +2,7 @@
   "name": "Game Color, by Vallejo",
   "short_name": "Game Color",
   "display": "standalone",
-  "start_url": "/",
+  "start_url": ".",
   "theme_color": "#93a7ac",
   "background_color": "#313131",
   "icons": [
