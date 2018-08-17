@@ -47,7 +47,7 @@ function cache(request) {
   return caches.match(request).then(response => {
     console.log('[Service Worker] Fetching resource: ' + request.url)
     return response || Promise.reject('no-match')
-  }).catch(error => console.error(error))
+  })
 }
 
 function cacheNetwork(request) {
