@@ -8,10 +8,14 @@
 
     <title>Game Color, by Vallejo</title>
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
   </head>
   <body>
+    <noscript>
+      This is your fallback content in case JavaScript fails to load.
+    </noscript>
+
     <div id="app"></div>
 
     <!-- script src="/dist/build.js"> </script -->
@@ -20,16 +24,13 @@
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
   .register('./service-worker.js')
-  .then(() => {
-    console.log('[Service Worker] Registered');
+  .then(reg => {
+    console.log('[Service Worker] Registered: ' + reg.scope);
   })
   .catch(err => {
     console.log('[Service Worker] Registration failed: ' + err);
   })
 }
     </script>
-    <noscript>
-        This PWA requires Javascript to become functional
-    </noscript>
   </body>
 </html>

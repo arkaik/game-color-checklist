@@ -1,9 +1,10 @@
 const CACHE_NAME = 'vallejo-game-color-checklist';
 
 const cacheList = [
-  "/",
-  "index.html",
-  "build.js",
+  "./",
+  "./manifest.json",
+  "./index.html",
+  "./build.js",
   "https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"
 ]
 
@@ -15,12 +16,16 @@ self.addEventListener("install", event => {
 
 // Clean old caches
 self.addEventListener("activate", event => {
-  console.log('[Service Worker] Removing old caches...');
+  console.log('[Service Worker] Removing old caches...')
   event.waitUntil(
     caches.keys()
     .then(keys => Promise.all(
       keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
     ))
+    .then( () => {
+      console.log('[Service Worker]: Clients claims')
+      return self.clients.claim()
+    })
   )
 })
 
@@ -47,7 +52,7 @@ function cache(request) {
   return caches.match(request).then(response => {
     console.log('[Service Worker] Fetching resource: ' + request.url)
     return response || Promise.reject('no-match')
-  })
+  }).catch(error => console.error(error))
 }
 
 function cacheNetwork(request) {
