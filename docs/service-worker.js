@@ -1,3 +1,5 @@
+importScripts('serviceworker-cache-polyfill.js');
+
 const CACHE_NAME = 'vallejo-game-color-checklist';
 
 const cacheList = [
