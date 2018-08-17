@@ -39,7 +39,7 @@ function precache(list) {
   caches.open(CACHE_NAME)
   .then(cache => {
     console.log('[Service Worker] Caching all: app shell and content')
-    return cache.addAll(list)
+    return cache.addAll(list).then(() => self.skipWaiting())
   })
 }
 
