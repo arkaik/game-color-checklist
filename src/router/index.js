@@ -10,17 +10,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Main',
       component: Main
     },
     {
       path: '/table',
-      name: 'Table',
       component: Table
     },
     {
       path: '/about',
-      name: 'About',
       component: About
     }
   ]
