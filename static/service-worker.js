@@ -7,6 +7,7 @@ const cacheList = [
   "./manifest.json",
   "./index.html",
   "./build.js",
+  "./serviceworker-cache-polyfill.js",
   "https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"
 ]
 
