@@ -8,6 +8,7 @@ const cacheList = [
   "./index.html",
   "./build.js",
   "./serviceworker-cache-polyfill.js",
+  "./material-icons.woff2",
   "https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"
 ]
 
