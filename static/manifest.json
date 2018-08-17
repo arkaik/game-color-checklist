@@ -2,9 +2,9 @@
   "name": "Game Color, by Vallejo",
   "short_name": "Game Color",
   "display": "standalone",
-  "start_url": ".",
+  "start_url": "index.html",
   "theme_color": "#93a7ac",
-  "background_color": "#313131",
+  "background_color": "#93a7ac",
   "icons": [
     {
       "src": "https://cdn.glitch.com/c0b45d75-3b40-40cd-abd1-987befe1f7d3%2Ficon.png?1533484127031",
