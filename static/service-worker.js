@@ -9,7 +9,7 @@ const cacheList = [
   "./build.js",
   "./serviceworker-cache-polyfill.js",
   "./material-icons.woff2",
-  "https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"
+  "https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic"
 ]
 
 // Install and precache
@@ -26,10 +26,10 @@ self.addEventListener("activate", event => {
     .then(keys => Promise.all(
       keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
     ))
-    .then( () => {
+    /*.then( () => {
       console.log('[Service Worker]: Clients claims')
       return self.clients.claim()
-    })
+    })*/
   )
 })
 
@@ -48,7 +48,7 @@ function precache(list) {
   caches.open(CACHE_NAME)
   .then(cache => {
     console.log('[Service Worker] Caching all: app shell and content')
-    return cache.addAll(list).then(() => self.skipWaiting())
+    return cache.addAll(list)//.then(() => self.skipWaiting())
   })
 }
 
